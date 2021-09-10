@@ -1,4 +1,8 @@
+const passport = require("passport");
+
 const usersController = {};
+
+const User = require("../models/User");
 
 usersController.renderSignupForm = (req, res) => {
 	res.render("user/signup");
@@ -21,13 +25,11 @@ usersController.signup = async (req, res) => {
 			password,
 		});
 	} else {
-		// Look for email coincidence
-		const emailUser = await User.findOne({ email: email });
+		const emailUser = await User.findOne({ email });
 		if (emailUser) {
-			req.flash("error_msg", "The Email is already in use.");
+			req.flash("error_msg", "The email is already in use.");
 			res.redirect("/users/signup");
 		} else {
-			// Saving a New User
 			const newUser = new User({ name, email, password });
 			newUser.password = await newUser.encryptPassword(password);
 			await newUser.save();
@@ -41,12 +43,16 @@ usersController.renderSigninForm = (req, res) => {
 	res.render("user/signin");
 };
 
-usersController.signin = (req, res) => {
-	res.send("signin");
-};
+usersController.signin = passport.authenticate("local", {
+	failureRedirect: "/users/signin",
+	successRedirect: "/notes",
+	failureFlash: true,
+});
 
 usersController.logout = (req, res) => {
-	res.send("logout");
+	req.logout();
+	req.flash("success_msg", "You are logged out now");
+	res.redirect("/");
 };
 
 module.exports = usersController;

@@ -9,13 +9,15 @@ const {
 	logout,
 } = require("../controllers/users.controller");
 
+const { isNotAuthenticated } = require("../helpers/auth");
+
 // New user
-router.get("/users/signup", renderSignupForm);
-router.post("/users/signup", signup);
+router.get("/users/signup", isNotAuthenticated, renderSignupForm);
+router.post("/users/signup", isNotAuthenticated, signup);
 
 // Login users
-router.get("/users/signin", renderSigninForm);
-router.post("/users/signin", signin);
+router.get("/users/signin", isNotAuthenticated, renderSigninForm);
+router.post("/users/signin", isNotAuthenticated, signin);
 
 router.get("/users/logout", logout);
 
