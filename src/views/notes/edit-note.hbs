@@ -1,0 +1,9 @@
+<div class="form-edit-note">
+	<h1 class="form-edit-note__title">Edit note</h1>
+	<form action="/notes/edit/{{note.id}}?_m=PUT" method="POST">
+		<input type="hidden" name="_m" value="PUT">
+		<input class="form-edit-note__input" type="text" name="title" id="" placeholder="Title" value="{{note.title}}" required/>
+		<textarea class="form-edit-note__textarea" name="description" id="" placeholder="Description" required>{{note.description}}</textarea>
+		<button class="form-edit-note__btn">Save changes<i class="bi bi-archive-fill form-edit-note__btn-icon"></i></button>
+	</form>
+</div>

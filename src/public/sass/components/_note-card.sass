@@ -1,0 +1,26 @@
+.card-note
+	@include box
+	position: relative
+	display: grid
+	grid-template-rows: 40px 130px 40px
+	&__edit
+		padding: 5px
+		position: absolute
+		inset-inline-end: 15px
+		inset-block-start: 15px
+		color: $white
+		transition: all 0.3s ease
+		&:hover
+			border-radius: 5px
+			background-color: #ffffff2e
+	&__title
+		margin-block-end: 10px
+		font-weight: bold
+		font-size: 21px
+	&__description
+		line-height: 21px
+	form
+		text-align: center
+	&__btn
+		@include simple-btn
+		margin: 0

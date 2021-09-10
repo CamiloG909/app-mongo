@@ -1,0 +1,33 @@
+.form-login-user
+	margin: 30px auto
+	inline-size: 400px
+	@include box
+	text-align: center
+	&__title
+		margin-block-start: 0
+	&__img
+		margin-block-end: 20px
+		max-inline-size: 200px
+		user-select: none
+	&__input
+		margin-block-end: 15px
+		padding: 10px
+		inline-size: 100%
+		color: $white
+		outline: none
+		border: 1px solid $borders
+		border-radius: 10px
+		background-color: transparent
+		&:focus
+			border: 1px solid $green
+	&__textarea
+		@extend .form-login-user__input
+		block-size: 150px
+		overflow-y: scroll
+		&::-webkit-scrollbar
+			display: none
+	&__btn
+		@include simple-btn
+		margin-block-start: 0
+		&-icon
+			margin-inline-start: 5px

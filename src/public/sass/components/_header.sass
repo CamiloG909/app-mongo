@@ -1,0 +1,24 @@
+.header-index
+	inline-size: 100%
+	block-size: 50px
+	border-bottom: 1px solid $borders
+	background-color: $custom-black
+	user-select: none
+	&__ul
+		display: flex
+		padding: 0
+		list-style: none
+	&__li
+		@include flex
+		a
+			padding: 16px 20px
+			text-decoration: none
+			color: $white
+			&:hover
+				background-color: $transparent-custom-black
+				transition: all 0.3s ease
+		&.title
+			a
+				&:hover
+					color: $soft-green
+					background-color: transparent

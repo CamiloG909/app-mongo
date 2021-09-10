@@ -1,0 +1,25 @@
+@mixin flex($justify: center, $align: center)
+	display: flex
+	justify-content: $justify
+	align-items: $align
+
+@mixin simple-btn
+	margin-block-start: 20px
+	padding: 10px
+	font-weight: bold
+	color: $white
+	border: none
+	border-radius: 5px
+	background-color: $green
+	user-select: none
+	transition: all 0.3s ease
+	cursor: pointer
+	&:hover
+		background-color: $dark-green
+
+
+@mixin box
+	padding: 20px
+	border: 1px solid $borders
+	border-radius: 10px
+	background-color: $gray
