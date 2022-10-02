@@ -1,3 +1,3 @@
 # Notes app with login (MongoDB and HBS)
 
-Deploy✨ https://app-mongo.camilog909.repl.co
+Deploy✨ https://notes-app-mongo-camilog90.up.railway.app/
