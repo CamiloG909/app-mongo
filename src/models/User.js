@@ -9,6 +9,7 @@ const userSchema = new Schema(
 	},
 	{
 		timestamps: true,
+		collection: "notes-app-mongo__user",
 	}
 );
 
